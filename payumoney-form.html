@@ -1,0 +1,69 @@
+ <div class="details_container packerdivtopheight" ng-controller="payumoney">
+         <div class="submit_right">
+            <!--***************************--> 
+            <div class="submit_right">
+               <div class="addporperty_from" >
+                  <form id="msform" ng-submit="payuMoneyFunc()" action="https://secure.payu.in/_payment" method="post" name="payuForm">
+                     <fieldset>
+					 
+                       <h2 class="fs-title">Payment Page</h2>
+                        
+                      
+					   
+						<input type="hidden" name="key" ng-model="marchentKey" ng-init="marchentKey='LRbQj6'" value="LRbQj6" />
+                        <input type="hidden" name="hash"  value="{{hash}}"/>
+                        <input type="hidden" name="txnid" ng-model="txnId"  value="{{txnId}}" />
+					
+						<!-- <input type="hidden" name="Salts" value="" /> -->
+						
+						 <input type="text" id="amount" name="amount" ng-model="amount" placeholder="Amount"/>
+						
+					   <p style="color:red" ng-show="onSubmit && (payuForm.amount.$error.required)">Please enter Amount.</p>
+						
+                       <input type="text" id="name_id" name="firstname" ng-model="firstname" placeholder="Your Name" required />
+						
+					   <p style="color:red" ng-show="onSubmit && (payuForm.firstname.$error.required)">Please enter your name.</p>
+						
+						 <input type="email" name="email" ng-model="email" placeholder="Email id" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+					 
+                        <p style="color:red" ng-show="onSubmit && (payuForm.email.$dirty && payuForm.email.$invalid)">
+                        <p style="color:red" ng-show="onSubmit && (payuForm.email.$error.required)">Please enter email Id.</p>
+                        <p style="color:red" ng-show="onSubmit && (payuForm.email.$error.pattern)">Invalid email address.</p>
+                        </p>
+						
+                       <input type="text" ng-minlength="10" ng-maxlength="10" name="phone" ng-model="phone" placeholder="Phone Number" required pattern="[789][0-9]{9}" />
+				       <p style="color:red" ng-show="onSubmit && (payuForm.phone.$error.required)">Please Enter your number.</p>
+                       <p style="color:red" ng-show="onSubmit && (payuForm.phone.$error.pattern || payuForm.phone.$error.minlength || payuForm.phone.$error.maxlength)">Invalid mobile number.</p>
+						
+                                                  
+                       
+                       	<input type="hidden" name="productinfo" ng-model="productinfo" ng-init="productinfo = 'propertyPost'" value="propertyPost" />
+						
+						<input type="hidden" style="visibility:hidden;" id="surl" name="surl"  ng-model="surl"  value="http://roomonrental.com/success" placeholder="Address" />
+						<input type="hidden" style="visibility:hidden;" id="furl" name="furl"  ng-model="furl" value="http://roomonrental.com/error" placeholder="Address" />
+						
+							<!-- <input type="hidden" name="service_provider" value="payu_paisa" size="64" /> -->
+							
+                      <!--   <input type="text" id="description" name="address"  ng-model="address" placeholder="Address" required /> -->
+						
+						
+					
+						
+						
+						
+						<p style="color:red" ng-show="onSubmit && (payuForm.address.$error.required)">Please enter Address</p>
+						
+						
+                        <center><input type="submit" style="width:158px !important;display: -webkit-box;" class="next action-button" value="Submit"> <span ng-show="searchButtonText == 'Please Wait...'" ><img style="width: 21px !important;" src="view/images/loading.gif"></span>
+                        {{ searchButtonText }}</center>
+	   
+                     </fieldset>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <!--***************************-->
+       
+        
+         <!--close submitfromcontainer-->
+      </div>
